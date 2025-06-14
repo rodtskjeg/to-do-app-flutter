@@ -1,16 +1,16 @@
 # to_do_app
 
-A new Flutter project.
+A simple and clean Flutter-based to-do list application that helps you stay organized and productive.
 
-## Getting Started
+✨ Features
+✅ Create new tasks quickly and easily
 
-This project is a starting point for a Flutter application.
+☑️ Mark tasks as complete using checkboxes
 
-A few resources to get you started if this is your first Flutter project:
+🗑️ Delete tasks you no longer need
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+📦 Local data storage using Hive – your tasks stay saved even after restarting the app
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🎨 Responsive and user-friendly UI
+
+This project is perfect as a starting point to learn state management, Hive database integration, and basic Flutter UI building.
