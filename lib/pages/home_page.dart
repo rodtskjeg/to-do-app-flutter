@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/data/database.dart';
-import 'package:to_do_app/utils/to-do-tile.dart';
-import 'package:to_do_app/utils/dialo-box.dart';
+import 'package:to_do_app/utils/to_do_tile.dart';
+import 'package:to_do_app/utils/dialo_box.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -69,6 +69,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // Function to delete a task
+  void deleteTask(int index) {
+    setState(() {
+      db.toDoList.removeAt(index);
+      db.updateDataBase(); // Update the database after deletion
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,15 +90,15 @@ class _HomePageState extends State<HomePage> {
                   const Center(
                     child: Text(
                       "No Tasks Yet!",
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+                      style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.normal),
                     ),
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: createNewTask,
-                    child: const Text("Add Task"),
+                    child: const Text("Add Task", style: TextStyle(fontSize: 15, color: Colors.black)),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Colors.yellow,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 10,
@@ -106,17 +114,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: ListView.builder(
                   itemCount: db.toDoList.length,
-                  itemBuilder: (context, index) {
-                    return ToDoTile(
+                  itemBuilder: (context, index) {                    return ToDoTile(
                       taskCompleted: db.toDoList[index][1],
                       taskTitle: db.toDoList[index][0],
                       onChanged: (value) => checkBoxChanged(value, index),
-                      onDelete: (context) {
-                        setState(() {
-                          db.toDoList.removeAt(index);
-                          db.updateDataBase(); // Update the database after deletion
-                        });
-                      },
+                      onDelete: (context) => deleteTask(index),
                     );
                   },
                 ),

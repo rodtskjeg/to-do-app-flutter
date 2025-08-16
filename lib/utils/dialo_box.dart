@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/utils/my-button.dart';
+import 'package:to_do_app/utils/my_button.dart';
 
 class DialogBox extends StatelessWidget {
   final String title;
@@ -37,7 +37,7 @@ class DialogBox extends StatelessWidget {
                   fillColor: Colors.white,
                   
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 3),
+                    borderSide: BorderSide(color: Colors.black, width: 2.0),
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
